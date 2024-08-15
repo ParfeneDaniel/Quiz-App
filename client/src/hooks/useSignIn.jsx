@@ -10,7 +10,7 @@ const useSignIn = () => {
     useAuthContext();
   const navigate = useNavigate();
 
-  const register = (formData) => {
+  const login = (formData) => {
     setLoading(true);
     setError(null);
     axios
@@ -36,7 +36,7 @@ const useSignIn = () => {
       .finally(() => setLoading(false));
   };
 
-  return { loading, error, register };
+  return { loading, error, login };
 };
 
 export default useSignIn;

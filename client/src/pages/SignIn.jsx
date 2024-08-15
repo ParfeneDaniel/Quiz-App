@@ -6,7 +6,7 @@ import { useAuthContext } from "../context/AuthContext";
 const SignIn = () => {
   const usernameRef = useRef();
   const passwordRef = useRef();
-  const { loading, error, register } = useSignIn();
+  const { loading, error, login } = useSignIn();
   const { isAuth } = useAuthContext();
   const location = useLocation();
 
@@ -15,7 +15,7 @@ const SignIn = () => {
       username: usernameRef.current.value,
       password: passwordRef.current.value,
     };
-    register(data);
+    login(data);
   };
 
   return isAuth ? (
