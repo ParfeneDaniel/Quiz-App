@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React from 'react'
 import Header from '../components/Header'
 
@@ -9,5 +10,12 @@ const Dashboard = () => {
     </div>
   )
 }
+=======
+import React from "react";
 
-export default Dashboard
+const Dashboard = () => {
+  return <div>Dashboard</div>;
+};
+>>>>>>> Stashed changes
+
+export default Dashboard;
