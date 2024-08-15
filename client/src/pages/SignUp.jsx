@@ -23,8 +23,8 @@ const SignUp = () => {
   return isAuth ? (
     <Navigate to="/home/" state={{ from: location }} replace />
   ) : (
-    <div id="signUp">
-      <form>
+    <div>
+      <form id="signUp">
         <input
           type="text"
           placeholder="username"

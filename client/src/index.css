@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat";
+}
+
+:root {
+  background-color: #262626;
+  color: #ededed;
+  width: 100%;
+}
+
+#signUp,
+#signIn {
+  border: 1px solid #ededed;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 30vh;
+  padding: 20px;
+  box-shadow: 0 0 5px white;
+}
+
+input {
+  width: 40vw;
+  height: 30px;
+  font-size: 0.8rem;
+  margin: 10px;
+  padding: 0.2rem;
+}
+
+p {
+  font-size: 0.7rem;
+  margin: 10px;
+}
+
+#header {
+    background-color: #20130c;
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+}
