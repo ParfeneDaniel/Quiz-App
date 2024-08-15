@@ -1,17 +1,17 @@
 import axios from "axios";
-import { useAuthContext } from "../contexts/AuthContext";
+import { useAuthContext } from "../context/AuthContext";
 import { jwtDecode } from "jwt-decode";
 
 const useAxiosInstance = () => {
   const { accessToken, setAccessToken, refreshToken } = useAuthContext();
 
   const axiosInstance = axios.create({
-    baseURL: "http://localhost:3001/api",
+    baseURL: "http://localhost:8080/api",
   });
 
   const refresh = async () => {
     try {
-      const res = await axios.post("http://localhost:3001/api/auth/refresh", {
+      const res = await axios.post("http://localhost:8080/api/auth/refresh", {
         refreshToken,
       });
       setAccessToken(res.data.accessToken);
