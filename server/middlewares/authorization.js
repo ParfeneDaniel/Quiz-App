@@ -6,7 +6,7 @@ const authorization = (req, res, next) => {
   try {
     const header = req.header("Authorization");
     if (!header) {
-      return res.status(403).json({ message: "Yot aren't autentificated" });
+      return res.status(403).json({ message: "Yot aren't authenticated" });
     }
     const accessToken = header.split(" ")[1];
     jwt.verify(accessToken, JWT_SECRET, (err, user) => {

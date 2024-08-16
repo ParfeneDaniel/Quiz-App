@@ -25,6 +25,20 @@ const userSchema = mongoose.Schema(
       type: Boolean,
       required: true,
     },
+    bio: {
+      type: String,
+      default: "",
+    },
+    occupation: {
+      type: String,
+      default: "",
+    },
+    quizzes: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Quiz",
+      },
+    ],
   },
   { timestamps: true }
 );
