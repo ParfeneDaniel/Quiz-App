@@ -1,9 +1,34 @@
-import React from 'react';
+import React from "react";
+import Header from "../components/Header";
+import icon from "../assets/user-icon.png";
 
 const Profile = () => {
-    return (
-        <h1>Profile</h1>
-    );
+  const username = "user1234";
+  const description = "Really likes making quizzes";
+  const occupation = "Makes quizzes";
+  return (
+    <div id="profile">
+      <Header />
+      <div style={{display: "flex"}}>
+        <div id="about">
+          <h2>ABOUT</h2>
+          <img className="icon" src={icon} />
+          <h3>{username}</h3>
+          <p><i>Description: </i>{description}</p>
+          <p><i>Occupation: </i>{occupation}</p>
+        </div>
+        <div id="stats">
+          <h2>STATS</h2>
+          <p>1711 XP</p>
+          <p>396 plays</p>
+          <p>etc</p>
+        </div>
+      </div>
+      <div id="quizzes">
+        QUIZZES
+      </div>
+    </div>
+  );
 };
 
 export default Profile;
