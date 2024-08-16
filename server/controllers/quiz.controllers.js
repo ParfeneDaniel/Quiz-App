@@ -49,4 +49,14 @@ const deleteQuiz = async (req, res) => {
   }
 };
 
-module.exports = { createQuiz, deleteQuiz };
+const getQuiz = async (req, res) => {
+  try {
+    return res.status(201).json({ message: "This is your quiz" });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Internal Server Error", errors: error.message });
+  }
+};
+
+module.exports = { createQuiz, deleteQuiz, getQuiz };
