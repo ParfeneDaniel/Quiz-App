@@ -185,6 +185,23 @@ const removeLike = async (req, res) => {
   }
 };
 
+const getQuizzes = async (req, res) => {
+  try {
+    const quizzes = await Quiz.find({}).select([
+      "title",
+      "category",
+      "difficulty",
+      "numberOfLikes",
+      "numberOfPlays",
+    ]);
+    res.status(201).json({ message: "Those are the quizzes", quizzes });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Internal Server Error", errors: error.message });
+  }
+};
+
 module.exports = {
   createQuiz,
   deleteQuiz,
@@ -192,4 +209,5 @@ module.exports = {
   markAsPlayed,
   addLike,
   removeLike,
+  getQuizzes,
 };
