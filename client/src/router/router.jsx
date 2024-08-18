@@ -5,6 +5,7 @@ import Validate from "../pages/Validate";
 import Home from "../pages/Home";
 import Dashboard from "../pages/Dashboard";
 import Profile from "../pages/Profile";
+import CreateQuiz from "../pages/CreateQuiz";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
   {
     path: "profile",
     element: <Profile />,
+  },
+  {
+    path: "createquiz",
+    element: <CreateQuiz />
   },
   {
     path: "validate/:emailToken",

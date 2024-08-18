@@ -11,6 +11,8 @@
   color: #ededed;
   width: 100%;
   --green: #00ff22;
+  --gray: #262626;
+  --grayer: #202020;
 }
 
 h1 {
@@ -35,11 +37,18 @@ p {
   margin: 10px;
 }
 
-input {
-  width: min(50vh, 50vw);
+input,
+select,
+option,
+textarea {
+  width: 50vmin;
   font-size: 2rem;
   margin: 10px;
   padding: 0.5rem;
+}
+
+label {
+  font-size: 2rem;
 }
 
 input:focus {
@@ -67,13 +76,12 @@ input:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
 }
 
-#header button {
+button {
   height: fit-content;
   padding: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 
@@ -92,7 +100,7 @@ input:focus {
 #stats {
   padding: 20px;
   margin: 10px;
-  background-color: #202020;
+  background-color: var(--grayer);
   width: 50%;
 }
 
@@ -108,4 +116,29 @@ input:focus {
 .flex-direction-row {
   display: flex;
   flex-direction: row;
+}
+
+#createQuizHeader {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--grayer);
+}
+
+.flex-direction-column {
+  align-self: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: max(50vw, 400px);
+}
+
+.radio {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  border: none;
+}
+
+.right-radio {
+  background-color: var(--green);
 }
