@@ -42,7 +42,10 @@ const SignIn = () => {
           onClick={handleSignIn}
         />
         <p>
-          Don't have an acount?<Link to="/signup">Sing Up</Link>
+          Don't have an account?{" "}
+          <Link className="link" to="/signup">
+            Sing Up
+          </Link>
         </p>
         {error && <p>{error}</p>}
       </form>
