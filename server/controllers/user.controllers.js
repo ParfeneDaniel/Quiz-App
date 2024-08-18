@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const User = require("../models/user.model");
 
 const updateUser = async (req, res) => {
@@ -12,4 +13,19 @@ const updateUser = async (req, res) => {
   }
 };
 
-module.exports = { updateUser };
+const getUser = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const user = await User.findById(userId).select([
+      "-password",
+      "-previousPasswords",
+    ]);
+    res.status(201).json({ message: "This is the user", user });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Internal Server Error", errors: error.message });
+  }
+};
+
+module.exports = { updateUser, getUser };

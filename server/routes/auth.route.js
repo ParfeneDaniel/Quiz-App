@@ -13,13 +13,13 @@ const authorization = require("../middlewares/authorization");
 
 const router = express.Router(); 
 
-router.post("/signup", signUp);
+router.post("/signUp", signUp);
 router.post("/validEmail/:emailToken", validEmail);
-router.post("/signin", signIn);
+router.post("/signIn", signIn);
 router.post("/refresh", refresh);
 router.put("/changePassword", authorization, changePassword);
 router.post("/forgotPassword", forgotPassword);
 router.put("/reset", reset);
-router.post("/signout", authorization, signOut);
+router.post("/signOut", authorization, signOut);
 
 module.exports = router;

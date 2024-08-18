@@ -35,8 +35,45 @@ const userSchema = mongoose.Schema(
     },
     quizzes: [
       {
-        type: mongoose.Schema.Types.ObjectId,
+        ID: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Quiz",
+          required: true,
+        },
+        title: {
+          type: String,
+          required: true,
+        },
+        category: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
+    numberOfPlays: {
+      type: Number,
+      default: 0,
+    },
+    numberOfLikes: {
+      type: Number,
+      default: 0,
+    },
+    points: {
+      type: Number,
+      default: 0,
+    },
+    played: [
+      {
+        type: mongoose.Schema.ObjectId,
         ref: "Quiz",
+        required: true,
+      },
+    ],
+    liked: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: "Quiz",
+        required: true,
       },
     ],
   },
