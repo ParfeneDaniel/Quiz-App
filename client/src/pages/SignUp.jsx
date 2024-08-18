@@ -45,7 +45,7 @@ const SignUp = () => {
           onClick={handleSignUp}
         />
         <p>
-          Already have an acount?<Link to="/signin">Sing In</Link>
+          Already have an account? <Link className="link" to="/signin">Sing In</Link>
         </p>
         {error && <p>{error}</p>}
         {data && <p>{data}</p>}
