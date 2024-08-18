@@ -9,20 +9,16 @@ import CreateQuiz from "../pages/CreateQuiz";
 
 export const router = createBrowserRouter([
   {
-    path: "signup",
+    path: "signUp",
     element: <SignUp />,
   },
   {
-    path: "signin",
+    path: "signIn",
     element: <SignIn />,
   },
   {
     path: "profile",
     element: <Profile />,
-  },
-  {
-    path: "createquiz",
-    element: <CreateQuiz />
   },
   {
     path: "validate/:emailToken",
@@ -35,6 +31,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Dashboard />,
+      },
+      {
+        path: "createQuiz",
+        element: <CreateQuiz />,
       },
     ],
   },
