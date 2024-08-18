@@ -6,6 +6,7 @@ const {
   getQuiz,
   markAsPlayed,
   addLike,
+  removeLike,
 } = require("../controllers/quiz.controllers");
 
 const router = express.Router();
@@ -16,5 +17,6 @@ router.delete("/deleteQuiz/:quizId", deleteQuiz);
 router.get("/getQuiz/:quizId", getQuiz);
 router.post("/markAsPlayed", markAsPlayed);
 router.post("/addLike", addLike);
+router.post("/removeLike", removeLike);
 
 module.exports = router;
