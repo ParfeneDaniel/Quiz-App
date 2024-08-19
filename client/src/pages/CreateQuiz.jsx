@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Header from "../components/Header";
 
 const CreateQuiz = () => {
@@ -16,33 +16,58 @@ const CreateQuiz = () => {
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
   };
+
   const handleDifficultyChange = (e) => {
     setDifficulty(e.target.value);
   };
+
   const handleRightAnswerChange = (val) => {
     const newRightAnswer = [false, false, false, false];
-    newRightAnswer[val] = true;
+    if (val != -1) newRightAnswer[val] = true;
     setRightAnswer(newRightAnswer);
   };
+
   const handlePrev = () => {
+    const newQuestion = {
+      question: questionRef.current.value,
+      answers: [
+        answer1Ref.current.value,
+        answer2Ref.current.value,
+        answer3Ref.current.value,
+        answer4Ref.current.value,
+      ],
+      correct: rightAnswer.indexOf(true),
+    };
+    setData((prev) =>
+      prev.map((question, index) =>
+        index == currentQuestion ? newQuestion : question
+      )
+    );
+    handleRightAnswerChange(data[currentQuestion - 1].correct);
+    console.log(data);
     setCurrentQuestion((prev) => prev - 1);
-    setRightAnswer(data[currentQuestion])
   };
+
   const handleNext = () => {
-    if (rightAnswer.indexOf(true) != -1) {
-      const newQuestion = {
-        question: questionRef.current.value,
-        answers: [
-          answer1Ref.current.value,
-          answer2Ref.current.value,
-          answer3Ref.current.value,
-          answer4Ref.current.value,
-        ],
-        correct: rightAnswer.indexOf(true),
-      };
+    const newQuestion = {
+      question: questionRef.current.value,
+      answers: [
+        answer1Ref.current.value,
+        answer2Ref.current.value,
+        answer3Ref.current.value,
+        answer4Ref.current.value,
+      ],
+      correct: rightAnswer.indexOf(true),
+    };
+
+    if (
+      newQuestion.correct != -1 &&
+      newQuestion.question != "" &&
+      newQuestion.answers.every((answer) => answer != "")
+    ) {
+      console.log("yes");
       if (currentQuestion == data.length) {
         setData([...data, newQuestion]);
-        console.log(data);
       } else {
         setData((prev) =>
           prev.map((question, index) =>
@@ -50,7 +75,9 @@ const CreateQuiz = () => {
           )
         );
       }
-      setRightAnswer(-1);
+      data[currentQuestion + 1]?.correct ? handleRightAnswerChange(data[currentQuestion + 1].correct) : handleRightAnswerChange(-1);
+
+      console.log(data);
       setCurrentQuestion((prev) => prev + 1);
     }
   };
@@ -173,10 +200,15 @@ const CreateQuiz = () => {
               />
             </div>
             <div>
-                {currentQuestion}
-              <button onClick={handlePrev} disabled={currentQuestion ? false : true}>Prev</button>
+              <button
+                onClick={handlePrev}
+                disabled={currentQuestion ? false : true}
+              >
+                Prev
+              </button>
               <button onClick={handleNext}>Next</button>
             </div>
+            <button>Finish</button>
           </div>
         </div>
       </div>
