@@ -75,7 +75,9 @@ const CreateQuiz = () => {
           )
         );
       }
-      data[currentQuestion + 1]?.correct ? handleRightAnswerChange(data[currentQuestion + 1].correct) : handleRightAnswerChange(-1);
+      data[currentQuestion + 1]?.correct
+        ? handleRightAnswerChange(data[currentQuestion + 1].correct)
+        : handleRightAnswerChange(-1);
 
       console.log(data);
       setCurrentQuestion((prev) => prev + 1);
